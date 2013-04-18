@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Post-removal script for tests execution
+# Remove all the files generated duing test execution
+#
+
+rm -rf /tmp/quillimagefilter-benchmark/
+
+#DEBHELPER#

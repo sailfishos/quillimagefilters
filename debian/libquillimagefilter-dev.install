@@ -1,0 +1,4 @@
+usr/include/
+usr/lib/pkgconfig
+usr/share/qt4/mkspecs/features/quillimagefilter.prf
+usr/lib/libquillimagefilter.so

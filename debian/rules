@@ -1,0 +1,55 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+#export DH_VERBOSE=1
+
+export NO_DOCS := no
+ifneq (,$(findstring nodocs,$(DEB_BUILD_OPTIONS)))
+         export NO_DOCS = yes
+endif
+
+QMAKE_OPTIONS := -makefile -nocache
+
+ifneq (,$(filter debug,$(DEB_BUILD_OPTIONS)))
+  QMAKE_OPTIONS += CONFIG+=debug
+  CFLAGS = -O0 -g
+else
+  QMAKE_OPTIONS += CONFIG+=release
+endif
+
+ifneq (,$(filter cov,$(DEB_BUILD_OPTIONS)))
+  QMAKE_OPTIONS += COV_OPTION=on
+else
+  QMAKE_OPTIONS += COV_OPTION=off
+endif
+
+ifneq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
+  CFLAGS = -O0 -g
+endif
+
+# Teach qmake about CFLAGS, poor qmake doesn't know about it...
+#
+QMAKE_OPTIONS += QMAKE_CXXFLAGS_RELEASE='$(CFLAGS)' \
+                 QMAKE_CXXFLAGS_DEBUG='$(CFLAGS)' \
+                 QMAKE_CFLAGS_RELEASE='$(CFLAGS)' \
+                 QMAKE_CFLAGS_DEBUG='$(CFLAGS)' \
+                 QMAKE_STRIP=: \
+                 PREFIX=/usr
+
+
+%:
+	dh --buildsystem=qmake $@
+
+override_dh_auto_configure:
+	qmake $(QMAKE_OPTIONS)
+
+override_dh_auto_build:
+	$(MAKE) all doc
+
+override_dh_clean:
+	$(RM) -r doc/html/*
+	dh_clean
+
+override_dh_strip:
+	dh_strip --dbg-package=libquillimagefilter1-dbg
+

@@ -1,0 +1,8 @@
+# subsystem: Image Editor
+# src-pkg: quillimagefilter
+interface: Image Processing Operations
+type: library
+libs-pkg: libquillimagefilter1
+dev-pkg: libquillimagefilter-dev
+state: stable
+scope: Platform

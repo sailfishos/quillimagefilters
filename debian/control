@@ -1,0 +1,54 @@
+Source: quillimagefilter
+Section: graphics
+Priority: extra
+Maintainer: Pekka Marjola <Pekka.Marjola@nokia.com>
+Build-Depends: debhelper (>= 7.0.50), libqt4-dev, libquillmetadata-dev,
+    libjpeg62-dev, libqt4-opengl-dev,doxygen
+Standards-Version: 3.8.0
+
+Package: libquillimagefilter1
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libquillmetadata1
+Description: Qt based library for individual image processing operations
+ A Qt based library which contains individual image loading,
+ processing and saving operations optimized for mobile
+ devices. Operations are used by libquill but can be also used
+ directly if the high-level engine framework of libquill is not
+ desired.
+
+Package: libquillimagefilter-dev
+Section: libdevel
+Architecture: all
+Depends: libquillimagefilter1 (>= ${source:Version}), libqt4-dev
+Replaces: libquillimagefilter1 (<< 1.110112.1)
+Description: quillimagefilter development headers
+
+Package: libquillimagefilter-doc
+Section: doc
+Architecture: all
+Depends: libquillimagefilter1 (>= ${source:Version})
+Description: Documentation for quillimagefilter
+
+Package: libquillimagefilter1-dbg
+Section: devel
+Architecture: any
+Priority: extra
+Depends: libquillimagefilter1 (= ${binary:Version})
+Description: quillimagefilter1 debug symbols
+
+Package: quillimagefilter-benchmark
+Section: devel
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqtcore4, libqtgui4, libquillimagefilter1
+Description: quillimagefilter benchmark
+ This is the quillimagefilter's benchmark to test operations from quill image
+
+Package: quillimagefilter-tests
+Section: tests
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqtcore4, libqtgui4, libquillimagefilter1, testrunner-lite, ci-package, ci-testing [armel]
+XB-Maemo-CI-Packages: libquillimagefilter1
+XB-Maemo-CI-Stage: fast, staging
+Description: quill image filter unit tests
+ This is the quillimagefilter's unit tests

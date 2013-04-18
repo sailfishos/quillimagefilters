@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Post-installation script for sample-tests
+#
+
+chmod a+x /usr/share/quillimagefilter-benchmark/runtests.sh
+
+#DEBHELPER#
