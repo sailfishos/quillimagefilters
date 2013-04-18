@@ -1,0 +1,21 @@
+* Thu Feb 09 2012 Marko Saukko <marko.saukko@gmail.com> - 1.111202.0
+- Move unittests to tests package.
+
+* Wed Dec 21 2011 Marko Saukko <marko.saukko@cybercom.com> - 1.111202.0
+- Changed to Harmattan upstream branch. NOTE: causes problems with versioning.
+- Added .yaml for spectacle
+
+* Tue Oct 04 2011 Marko Saukko <marko.saukko@cybercom.com> - 3.9.0
+- Disabled documentation.
+
+* Mon Jan 10 2011 Teemu Hukkanen <ext-teemu.hukkanen@nokia.com> - 3.9.0
+- update quillimagefilter to 3.9.0 (BMC#12598)
+- New upstream version.
+- Re-organise the sub-packages to coherent sections (same content,
+  different order)
+- Fold long descriptions.
+- Clean up BuildRequires.
+- Unset LD_AS_NEEDED, linking a test case fails with it.
+
+* Fri Oct 15 2010 Maitrey Mishra <ext-maitrey.mishra@nokia.com> - 3.8.0
+- Initial version 
