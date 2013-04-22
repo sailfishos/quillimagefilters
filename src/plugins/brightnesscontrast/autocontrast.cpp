@@ -64,7 +64,7 @@ QuillImageFilter *AutoContrast::generate(const QuillImage &image) const
 
     /* Iterate through all pixels of the image */
 
-    QRgb *endp = (QRgb*)(image.bits()+image.numBytes());
+    QRgb *endp = (QRgb*)(image.bits()+image.byteCount());
 
     int numSamples[256];
     int total = 0;

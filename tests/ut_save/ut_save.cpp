@@ -269,7 +269,7 @@ void ut_save::testFailedSave()
 }
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_save test;
     return QTest::qExec( &test, argc, argv );
 

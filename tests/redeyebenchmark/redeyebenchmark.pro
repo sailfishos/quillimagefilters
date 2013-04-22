@@ -7,7 +7,8 @@ TARGET = redeyebenchmark
 DEPENDPATH += .
 INCLUDEPATH += . $$[QT_INSTALL_HEADERS]/quillimagefilter
 
-LIBS += -lquillimagefilter
+equals(QT_MAJOR_VERSION, 4): LIBS += -lquillimagefilter
+equals(QT_MAJOR_VERSION, 5): LIBS += -lquillimagefilter-qt5
 
 # Input
 SOURCES += redeyebenchmark.cpp

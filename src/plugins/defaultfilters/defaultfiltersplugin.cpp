@@ -108,4 +108,6 @@ void quillimagefilter_plugin_cleanup()
     LoadFilter::cleanup();
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(defaultfilters, DefaultFiltersPlugin)
+#endif

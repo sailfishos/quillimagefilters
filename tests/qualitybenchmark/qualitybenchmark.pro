@@ -7,7 +7,8 @@ TARGET = qualitybenchmark
 DEPENDPATH += .
 INCLUDEPATH += .
 
-LIBS += -lquillimagefilter
+equals(QT_MAJOR_VERSION, 4): LIBS += -lquillimagefilter
+equals(QT_MAJOR_VERSION, 5): LIBS += -lquillimagefilter-qt5
 
 # Input
 SOURCES += qualitybenchmark.cpp

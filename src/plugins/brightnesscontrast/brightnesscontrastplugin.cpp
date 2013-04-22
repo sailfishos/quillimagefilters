@@ -67,4 +67,6 @@ const QStringList BrightnessContrastPlugin::name() const
     return list;
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(brightnesscontrast, BrightnessContrastPlugin)
+#endif

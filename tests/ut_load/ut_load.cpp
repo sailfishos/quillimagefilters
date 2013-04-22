@@ -69,7 +69,7 @@ void ut_load::testRole()
 
 void ut_load::testQImage()
 {
-    QFile file("/usr/share/quillimagefilter-tests/images/16_color_palette.png");
+    QFile file(TEST_BASE_DIR "images/16_color_palette.png");
     QuillImageFilter *filter =
             new QuillImageFilter("com.meego.load");
     QVERIFY(filter);
@@ -102,7 +102,7 @@ void ut_load::testQImage()
 void ut_load::testPluginQImage()
 {
 
-    QFile file("/usr/share/quillimagefilter-tests/images/16_color_palette.png");
+    QFile file(TEST_BASE_DIR "images/16_color_palette.png");
     QuillImageFilter *filter =
         QuillImageFilterFactory::createImageFilter("org.maemo.load");
     QVERIFY(filter);
@@ -136,14 +136,14 @@ void ut_load::testIODevice()
 {
     QuillImageFilter *filter =
         QuillImageFilterFactory::createImageFilter("org.maemo.load");
-    QFile *fileIO = new QFile("/usr/share/quillimagefilter-tests/images/16_color_palette.png");
+    QFile *fileIO = new QFile(TEST_BASE_DIR "images/16_color_palette.png");
     QVERIFY(fileIO->open(QIODevice::ReadOnly));
     QCOMPARE(fileIO->isOpen(),true);
     QCOMPARE(fileIO->isReadable(),true);
     QVERIFY(fileIO);
     filter->setIODevice(fileIO);
     QCOMPARE(fileIO, filter->iODevice());
-    QImage image("/usr/share/quillimagefilter-tests/images/16_color_palette.png");
+    QImage image(TEST_BASE_DIR "images/16_color_palette.png");
     QImage loadedImage1 = filter->apply(image);
     QVERIFY(Unittests::compareImage(loadedImage1, image));
     delete fileIO;
@@ -162,7 +162,7 @@ void ut_load::testRoleAndDomainName()
 
 void ut_load::testFileNotFound()
 {
-    QFile fooFile("/usr/share/quillimagefilter-tests/images/fooxxx.png");
+    QFile fooFile(TEST_BASE_DIR "images/fooxxx.png");
     QVERIFY(!fooFile.exists());
 
     QImage fooImage(fooFile.fileName());
@@ -190,7 +190,7 @@ void ut_load::testUnsupportedFormat()
 {
     QuillImageFilter *filter =
         QuillImageFilterFactory::createImageFilter("org.maemo.load");
-    QFile unsupportedFile("/usr/share/quillimagefilter-tests/images/16_color_palette.xcf");
+    QFile unsupportedFile(TEST_BASE_DIR "images/16_color_palette.xcf");
     QImage unsupportedImage(unsupportedFile.fileName());
     filter->setOption(QuillImageFilter::FileName,
                       QVariant( unsupportedFile.fileName()));
@@ -206,7 +206,7 @@ void ut_load:: testInvalidData()
 {
     QuillImageFilter *filter =
         QuillImageFilterFactory::createImageFilter("org.maemo.load");
-    QFile invalidFile("/usr/share/quillimagefilter-tests/images/16_color_palette.xcf");
+    QFile invalidFile(TEST_BASE_DIR "images/16_color_palette.xcf");
     QImage invalidImage(invalidFile.fileName());
     filter->setOption(QuillImageFilter::FileName,
                       QVariant( invalidFile.fileName()));
@@ -223,7 +223,7 @@ void ut_load::testFormatDetectionFromSuffix()
     QuillImageFilter *filter =
         QuillImageFilterFactory::createImageFilter("org.maemo.load");
 
-    QFile file("/usr/share/quillimagefilter-tests/images/16_color_palette.png");
+    QFile file(TEST_BASE_DIR "images/16_color_palette.png");
     filter->setOption(QuillImageFilter::FileName, QString(file.fileName()));
 
     QCOMPARE(filter->option(QuillImageFilter::FileFormat).toString(), QString("png"));
@@ -303,7 +303,7 @@ void ut_load::testCropping()
     QuillImageFilter *filter =
         QuillImageFilterFactory::createImageFilter("org.maemo.load");
 
-    QFile file("/usr/share/quillimagefilter-tests/images/16_color_palette.png");
+    QFile file(TEST_BASE_DIR "images/16_color_palette.png");
     filter->setOption(QuillImageFilter::FileName, QString(file.fileName()));
 
     QuillImage target = QuillImage();
@@ -326,7 +326,7 @@ void ut_load::testExifRotationSizePeek()
     QTemporaryFile testFile;
     testFile.open();
 
-    QImage image("/usr/share/quillimagefilter-tests/images/16_color_palette.png");
+    QImage image(TEST_BASE_DIR "images/16_color_palette.png");
     image.save(testFile.fileName(), "jpeg");
 
     QuillMetadata metadata;
@@ -347,7 +347,7 @@ void ut_load::testExifRotation()
     QTemporaryFile testFile;
     testFile.open();
 
-    QImage image("/usr/share/quillimagefilter-tests/images/16_color_palette.png");
+    QImage image(TEST_BASE_DIR "images/16_color_palette.png");
     image.save(testFile.fileName(), "jpeg");
 
     QuillMetadata metadata;
@@ -368,7 +368,7 @@ void ut_load::testLoadSameFilterTwice()
 {
     QTemporaryFile testFile;
     testFile.open();
-    QImage greenTestImage("/usr/share/quillimagefilter-tests/images/854x480_blue.png");
+    QImage greenTestImage(TEST_BASE_DIR "images/854x480_blue.png");
     // Verify whether image exists
     QVERIFY(!greenTestImage.isNull());
     greenTestImage.save(testFile.fileName(), "jpg");
@@ -422,7 +422,7 @@ void ut_load::testLoadSetTargetSizeOnly()
 
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_load test;
     return QTest::qExec( &test, argc, argv );
 

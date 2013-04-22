@@ -94,9 +94,9 @@ QuillImage SaveFilter::apply(const QuillImage &image) const
     if(image.isNull())
         return QuillImage();
     // Simple format detection (1. given format 2. suffix)
-    QString format = priv->fileFormatQt.toAscii();
+    QString format = priv->fileFormatQt.toLatin1();
     if (format.isEmpty())
-        format = QFileInfo(priv->fileName).suffix().toAscii();
+        format = QFileInfo(priv->fileName).suffix().toLatin1();
 
     // Jpeg always uses serial access saving, also for non-tiles,
     // to be able to insert EXIF data
@@ -249,12 +249,12 @@ bool SaveFilter::saveFullImage(const QuillImage &image) const
 {
     QImageWriter *writer;
     if (priv->iODevice)
-        writer = new QImageWriter(priv->iODevice, priv->fileFormatQt.toAscii());
+        writer = new QImageWriter(priv->iODevice, priv->fileFormatQt.toLatin1());
     else
         writer = new QImageWriter(priv->fileName);
 
     if (!priv->fileFormatQt.isNull())
-        writer->setFormat(priv->fileFormatQt.toAscii());
+        writer->setFormat(priv->fileFormatQt.toLatin1());
 
     bool ok = writer->write(image);
 

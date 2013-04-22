@@ -188,7 +188,7 @@ void ut_scalecrop::testPreviewScaledCrop()
 }
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_scalecrop test;
     return QTest::qExec( &test, argc, argv );
 

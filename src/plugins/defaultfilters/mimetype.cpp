@@ -73,7 +73,7 @@ QString MimeType::toQImageFormat(const QString &mimeType)
         // Try to auto-generate a format from the mimetype
         return mimeType.mid(6);
     else if (QImageReader::supportedImageFormats().
-             contains(mimeType.toAscii()))
+             contains(mimeType.toLatin1()))
         return mimeType;
     else return QString();
 }

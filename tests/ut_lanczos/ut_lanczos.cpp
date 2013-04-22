@@ -130,7 +130,7 @@ void ut_lanczos::testInvalidImage()
 }
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_lanczos test;
     return QTest::qExec( &test, argc, argv );
 

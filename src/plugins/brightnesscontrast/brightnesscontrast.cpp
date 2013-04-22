@@ -80,7 +80,7 @@ QuillImage BrightnessContrast::apply(const QuillImage &image) const
 {
     QuillImage result(image);
 
-    QRgb *endp = (QRgb*)(result.bits()+result.numBytes());
+    QRgb *endp = (QRgb*)(result.bits()+result.byteCount());
 
     int lookup[256];
 

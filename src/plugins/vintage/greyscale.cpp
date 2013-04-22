@@ -55,7 +55,7 @@ QuillImage Greyscale::apply(const QuillImage &image) const
 {
     QuillImage newImage(image);
 
-    QRgb *endp = (QRgb*)(newImage.bits()+newImage.numBytes());
+    QRgb *endp = (QRgb*)(newImage.bits()+newImage.byteCount());
 
     // Apply the actual operation
     // Greyscale, contrast +80%

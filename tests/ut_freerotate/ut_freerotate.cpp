@@ -128,7 +128,7 @@ void ut_freerotate::testApply()
 
 void ut_freerotate::testSizeDoesntGoToZeroHorizontal()
 {
-    QImage image("/usr/share/quillimagefilter-tests/images/redeye.jpg");
+    QImage image(TEST_BASE_DIR "images/redeye.jpg");
     QVERIFY(!image.isNull());
 
     QuillImageFilter *filter =
@@ -151,7 +151,7 @@ void ut_freerotate::testSizeDoesntGoToZeroHorizontal()
 
 void ut_freerotate::testSizeDoesntGoToZeroVertical()
 {
-    QImage image("/usr/share/quillimagefilter-tests/images/redeye.jpg");
+    QImage image(TEST_BASE_DIR "images/redeye.jpg");
     QVERIFY(!image.isNull());
 
     QuillImageFilter *filter0 =
@@ -180,7 +180,7 @@ void ut_freerotate::testSizeDoesntGoToZeroVertical()
 
 void ut_freerotate::testPreserveRatioHorizontal()
 {
-    QImage image("/usr/share/quillimagefilter-tests/images/redeye.jpg");
+    QImage image(TEST_BASE_DIR "images/redeye.jpg");
     QVERIFY(!image.isNull());
 
     QuillImageFilter *filter =
@@ -200,7 +200,7 @@ void ut_freerotate::testPreserveRatioHorizontal()
 
 void ut_freerotate::testPreserveRatioVertical()
 {
-    QImage image("/usr/share/quillimagefilter-tests/images/redeye.jpg");
+    QImage image(TEST_BASE_DIR "images/redeye.jpg");
     QVERIFY(!image.isNull());
 
     QuillImageFilter *filter0 =
@@ -331,7 +331,7 @@ void ut_freerotate::testWithBrightnessAndContrast()
     }
 
     // Compare results
-    QRgb *endp_source = (QRgb*)(targetImage.bits()+targetImage.numBytes());
+    QRgb *endp_source = (QRgb*)(targetImage.bits()+targetImage.byteCount());
     QRgb *p_source = (QRgb*)targetImage.bits();
     QRgb *p_target = (QRgb*)editedTargetImage.bits();
     for (; p_source < endp_source; p_source++, p_target++)
@@ -341,7 +341,7 @@ void ut_freerotate::testWithBrightnessAndContrast()
 }
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_freerotate test;
     return QTest::qExec( &test, argc, argv );
 

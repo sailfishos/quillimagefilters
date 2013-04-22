@@ -239,7 +239,7 @@ void ut_scale::testRoleAndDomainName()
 }
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_scale test;
     return QTest::qExec( &test, argc, argv );
 }

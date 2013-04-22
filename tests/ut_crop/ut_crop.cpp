@@ -102,6 +102,7 @@ void ut_crop::testPreview()
                               QRect(QPoint(2, 0), QPoint(7, 1))));
 
     QuillImage image(Unittests::generatePaletteImage().scaled(QSize(4,1)));
+
     image.setFullImageSize(QSize(8, 2));
     image.setArea(QRect(0, 0, 8, 2));
 
@@ -175,7 +176,7 @@ void ut_crop::testQuillImagePreview()
 }
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_crop test;
     return QTest::qExec( &test, argc, argv );
 

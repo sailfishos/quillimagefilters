@@ -128,7 +128,7 @@ void ut_overlay::testRoleAndDomainName()
 }
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_overlay test;
     return QTest::qExec( &test, argc, argv );
 }
