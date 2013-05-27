@@ -6,7 +6,7 @@ Group: System/Libraries
 License: LGPLv2
 URL: http://maemo.gitorious.org/meego-image-editor/quillimagefilters
 Sources:
-    - "meego-image-editor-%{name}s-%{version}.tar.gz"
+    - "%{name}-%{version}.tar.gz"
 Description: |
     A Qt based library which contains individual image loading, processing
     and saving operations optimized for mobile devices. Operations are
