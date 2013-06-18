@@ -43,6 +43,16 @@
 #include <QtGlobal>
 #include <QRgb>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#include <QGuiApplication>
+typedef QGuiApplication TestApplication;
+#define TEST_BASE_DIR "/usr/share/quillimagefilter-qt5-tests/"
+#else
+#include <QApplication>
+typedef QApplication TestApplication;
+#define TEST_BASE_DIR "/usr/share/quillimagefilter-tests/"
+#endif
+
 extern int palette16[16][3];
 
 class QImage;

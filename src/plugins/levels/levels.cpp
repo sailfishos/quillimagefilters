@@ -87,7 +87,7 @@ QuillImage Levels::apply(const QuillImage &image) const
 {
     QuillImage newImage(image);
 
-    QRgb *endp = (QRgb*)(newImage.bits()+newImage.numBytes());
+    QRgb *endp = (QRgb*)(newImage.bits()+newImage.byteCount());
 
     int lookupRed[256], lookupGreen[256], lookupBlue[256];
 

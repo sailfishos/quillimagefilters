@@ -147,7 +147,7 @@ void ut_flip::testQuillImage()
 
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_flip test;
     return QTest::qExec( &test, argc, argv );
 

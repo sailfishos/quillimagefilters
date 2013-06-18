@@ -112,7 +112,7 @@ QuillImage FreeRotate::apply(const QuillImage &image) const
     QuillImage newImage = image.transformed(transform, Qt::SmoothTransformation);
     QuillImage newImage2 = image.transformed(transform, Qt::FastTransformation);
 
-    QRgb *endp	= (QRgb*)(newImage.bits()+newImage.numBytes());
+    QRgb *endp	= (QRgb*)(newImage.bits()+newImage.byteCount());
     QRgb *q	= (QRgb*) newImage2.bits();
 
     // Apply the actual operation

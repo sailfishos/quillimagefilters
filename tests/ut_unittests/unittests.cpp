@@ -125,7 +125,7 @@ bool Unittests::compareImage(QImage image1, QImage image2)
 
     qWarning() << "Image data follows:";
 
-    for (int i=0; i<image1.numBytes()/4; i++)
+    for (int i=0; i<image1.byteCount()/4; i++)
         qWarning("%8x %8x", pixel1[i], pixel2[i]);
 
     return false;

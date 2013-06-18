@@ -150,7 +150,7 @@ void ut_autocontrast::testCutoff()
 }
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_autocontrast test;
     return QTest::qExec( &test, argc, argv );
 

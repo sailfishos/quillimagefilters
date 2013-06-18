@@ -66,7 +66,7 @@ void ut_plugininterface::testInvalidFilter()
 
     QCOMPARE(filter->name(), QString());
 
-    QImage image("/usr/share/quillimagefilter-tests/images/redeye.jpg");
+    QImage image(TEST_BASE_DIR "images/redeye.jpg");
 
     QVERIFY(!image.isNull());
 
@@ -78,7 +78,7 @@ void ut_plugininterface::testInvalidFilter()
 }
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_plugininterface test;
     return QTest::qExec( &test, argc, argv );
 

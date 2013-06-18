@@ -160,7 +160,7 @@ bool SerialSaver::isFinished() const
 
 uchar *SerialSaver::data(const QuillImage &image)
 {
-    uchar *data = new uchar[image.numBytes() * 3 / 4 + 1];
+    uchar *data = new uchar[image.byteCount() * 3 / 4 + 1];
     uchar *d = data;
     QRgb rgbp = qRgba(0, 0, 0, 0);
 

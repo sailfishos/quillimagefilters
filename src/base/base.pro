@@ -3,19 +3,28 @@
 ##########
 
 TEMPLATE = lib
-TARGET = quillimagefilter
+equals(QT_MAJOR_VERSION, 4): TARGET = quillimagefilter
+equals(QT_MAJOR_VERSION, 5): TARGET = quillimagefilter-qt5
 DEPENDPATH += .
 INCLUDEPATH += .
 
-CONFIG += quillmetadata
+CONFIG += link_pkgconfig
+equals(QT_MAJOR_VERSION, 4): PKGCONFIG += quillmetadata
+equals(QT_MAJOR_VERSION, 5): PKGCONFIG += quillmetadata-qt5
 
 # Generate pkg-config support by default
 # Note that we HAVE TO also create prl config as QMake implementation
 # mixes both of them together.
 CONFIG += create_pc create_prl no_install_prl
-QMAKE_PKGCONFIG_NAME = Quillimagefilter
 QMAKE_PKGCONFIG_DESCRIPTION =  Quillimagefilter Library
-QMAKE_PKGCONFIG_REQUIRES = QtGui
+equals(QT_MAJOR_VERSION, 4) {
+    QMAKE_PKGCONFIG_NAME = Quillimagefilter
+    QMAKE_PKGCONFIG_REQUIRES = QtGui
+}
+equals(QT_MAJOR_VERSION, 5) {
+    QMAKE_PKGCONFIG_NAME = Quillimagefilter-qt5
+    QMAKE_PKGCONFIG_REQUIRES = Qt5Gui
+}
 QMAKE_PKGCONFIG_INCDIR = $$[QT_INSTALL_HEADERS]/$$TARGET
 QMAKE_PKGCONFIG_LIBDIR = $$[QT_INSTALL_LIBS]
 QMAKE_PKGCONFIG_DESTDIR = pkgconfig
@@ -72,9 +81,13 @@ INSTALL_HEADERS = \
 headers.files = $$INSTALL_HEADERS
 headers.path = $$[QT_INSTALL_HEADERS]/$$TARGET
 target.path = $$[QT_INSTALL_LIBS]
-prf.files = quillimagefilter.prf
-prf.path = $$[QT_INSTALL_DATA]/mkspecs/features
-INSTALLS += target headers prf
+INSTALLS += target headers
+
+equals(QT_MAJOR_VERSION, 4) {
+    prf.files = quillimagefilter.prf
+    prf.path = $$[QT_INSTALL_DATA]/mkspecs/features
+    INSTALLS += prf
+}
 
 # --- clean
 QMAKE_CLEAN += \

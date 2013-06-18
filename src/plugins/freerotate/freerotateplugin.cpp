@@ -63,4 +63,6 @@ const QStringList FreeRotatePlugin::name() const
     return list;
 }
 
-Q_EXPORT_PLUGIN2(brightnesscontrast, FreeRotatePlugin)
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+Q_EXPORT_PLUGIN2(freerotate, FreeRotatePlugin)
+#endif

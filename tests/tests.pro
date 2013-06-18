@@ -32,13 +32,20 @@ SUBDIRS += \
            benchmark
 
 # --- install
-tatam.files = tests.xml
-tatam.path  = $$(DESTDIR)/usr/share/quillimagefilter-tests/
+equals(QT_MAJOR_VERSION, 4) {
+    tatam.files = tests.xml
+    tatam.path  = $$(DESTDIR)/usr/share/quillimagefilter-tests/
+}
+equals(QT_MAJOR_VERSION, 5) {
+    tatam.files = qt5/tests.xml
+    tatam.path  = $$(DESTDIR)/usr/share/quillimagefilter-qt5-tests/
+}
 
 tatamimages.files += images/16_color_palette.png
 tatamimages.files += images/16_color_palette.xcf
 tatamimages.files += images/redeye.jpg
 tatamimages.files += images/854x480_blue.png
-tatamimages.path  = $$(DESTDIR)/usr/share/quillimagefilter-tests/images/
+equals(QT_MAJOR_VERSION, 4): tatamimages.path  = $$(DESTDIR)/usr/share/quillimagefilter-tests/images/
+equals(QT_MAJOR_VERSION, 5): tatamimages.path  = $$(DESTDIR)/usr/share/quillimagefilter-qt5-tests/images/
 
 INSTALLS += tatam tatamimages

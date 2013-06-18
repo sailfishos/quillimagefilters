@@ -100,7 +100,7 @@ void ut_vintage::testCrossProcessing()
 }
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_vintage test;
     return QTest::qExec( &test, argc, argv );
 

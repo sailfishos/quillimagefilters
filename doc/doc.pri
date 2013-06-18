@@ -11,18 +11,22 @@ isEmpty(DOXYGEN_BIN) {
 # install rules
 
     htmldocs.files = ./doc/html/*.html ./doc/html/*.css
-    htmldocs.path = $$INSTALLDIR/quillimagefilter-doc
+    equals(QT_MAJOR_VERSION, 4): htmldocs.path = $$INSTALLDIR/quillimagefilter-doc
+    equals(QT_MAJOR_VERSION, 5): htmldocs.path = $$INSTALLDIR/quillimagefilter-qt5-doc
     htmldocs.CONFIG += no_check_exist
 
     docimages.files = ./doc/html/*.png ./doc/html/*.gif
-    docimages.path = $$INSTALLDIR/quillimagefilter-doc
+    equals(QT_MAJOR_VERSION, 4): docimages.path = $$INSTALLDIR/quillimagefilter-doc
+    equals(QT_MAJOR_VERSION, 5): docimages.path = $$INSTALLDIR/quillimagefilter-qt5-doc
     docimages.CONFIG += no_check_exist
 
     docmaps.files = ./doc/html/*.map
-    docmaps.path = $$INSTALLDIR/quillimagefilter-doc
+    equals(QT_MAJOR_VERSION, 4): docmaps.path = $$INSTALLDIR/quillimagefilter-doc
+    equals(QT_MAJOR_VERSION, 5): docmaps.path = $$INSTALLDIR/quillimagefilter-qt5-doc
     docmaps.CONFIG += no_check_exist
 
-    INSTALLS += htmldocs docimages docmaps
+    # qt5 complains about empty installs
+    equals(QT_MAJOR_VERSION, 4): INSTALLS += htmldocs docimages docmaps
 }
 doc.depends = FORCE
 

@@ -264,7 +264,7 @@ void ut_autolevels::testPreserveAlphaChannel()
 
     targetImage = filter->apply(sourceImage);
 
-    QRgb *endp_source = (QRgb*)(sourceImage.bits()+sourceImage.numBytes());
+    QRgb *endp_source = (QRgb*)(sourceImage.bits()+sourceImage.byteCount());
     QRgb *p_source = (QRgb*)sourceImage.bits();
     QRgb *p_target = (QRgb*)targetImage.bits();
     for (; p_source < endp_source; p_source++, p_target++)
@@ -277,7 +277,7 @@ void ut_autolevels::testPreserveAlphaChannel()
 }
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_autolevels test;
     return QTest::qExec( &test, argc, argv );
 

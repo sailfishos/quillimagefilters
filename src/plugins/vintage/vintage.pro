@@ -15,4 +15,6 @@ SOURCES += greyscale.cpp \
            vignette.cpp \
            vintageplugin.cpp
 
+equals(QT_MAJOR_VERSION, 5): OTHER_FILES += vintage.json
+
 include(../plugin.pri)

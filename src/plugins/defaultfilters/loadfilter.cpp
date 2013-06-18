@@ -168,10 +168,10 @@ QuillImage LoadFilter::apply(const QuillImage &tile) const
 
     if (priv->iODevice) {
         delete reader;
-        reader = new QImageReader(priv->iODevice, priv->fileFormatQt.toAscii());
+        reader = new QImageReader(priv->iODevice, priv->fileFormatQt.toLatin1());
 
         if (!priv->fileFormatQt.isEmpty())
-            reader->setFormat(priv->fileFormatQt.toAscii());
+            reader->setFormat(priv->fileFormatQt.toLatin1());
     }
     else {
         if (isNew) {
@@ -183,10 +183,10 @@ QuillImage LoadFilter::apply(const QuillImage &tile) const
 
             buffer.seek(0);
             priv->orientation = readOrientation();
-            reader = new QImageReader(&buffer, priv->fileFormatQt.toAscii());
+            reader = new QImageReader(&buffer, priv->fileFormatQt.toLatin1());
 
             if (!priv->fileFormatQt.isEmpty())
-                reader->setFormat(priv->fileFormatQt.toAscii());
+                reader->setFormat(priv->fileFormatQt.toLatin1());
         }
         else {
             buffer.seek(0);
@@ -367,7 +367,7 @@ QSize LoadFilter::newFullImageSize(const QSize &fullImageSize) const
     if (priv->isInvalid)
         return QSize();
 
-    QImageReader reader(priv->fileName, priv->fileFormatQt.toAscii());
+    QImageReader reader(priv->fileName, priv->fileFormatQt.toLatin1());
     if(priv->iODevice)
         reader.setDevice(priv->iODevice);
 

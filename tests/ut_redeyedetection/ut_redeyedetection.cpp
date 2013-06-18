@@ -81,7 +81,7 @@ void ut_redeyedetection::testGenerator()
 
     QVERIFY(bOK);
 
-    QImage image("/usr/share/quillimagefilter-tests/images/redeye.jpg");
+    QImage image(TEST_BASE_DIR "images/redeye.jpg");
 
     QVERIFY(!image.isNull());
 
@@ -150,7 +150,7 @@ void ut_redeyedetection::testIsUsedOnPreview()
 }
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_redeyedetection test;
     return QTest::qExec( &test, argc, argv );
 }

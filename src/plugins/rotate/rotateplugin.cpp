@@ -63,4 +63,6 @@ const QStringList RotatePlugin::name() const
     return list;
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(rotate, RotatePlugin)
+#endif

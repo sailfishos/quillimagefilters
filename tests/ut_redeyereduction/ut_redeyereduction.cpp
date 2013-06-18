@@ -221,7 +221,7 @@ void ut_redeyereduction::testReductTwoAreas()
         radii << QVariant(r);
     QVERIFY(filter->setOption(QuillImageFilter::Radius, QVariant(radii)));
 
-    QImage image("/usr/share/quillimagefilter-tests/images/redeye.jpg");
+    QImage image(TEST_BASE_DIR "images/redeye.jpg");
     QVERIFY(!image.isNull());
 
     QImage image1 = filter->apply(image);
@@ -257,7 +257,7 @@ void ut_redeyereduction::testReductTwoAreas()
 
 
 int main ( int argc, char *argv[] ){
-    QCoreApplication app( argc, argv );
+    TestApplication app( argc, argv );
     ut_redeyereduction test;
     return QTest::qExec( &test, argc, argv );
 }
