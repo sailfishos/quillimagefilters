@@ -109,7 +109,8 @@ class QuillImageFilterInterface
 
 };
 
-Q_DECLARE_INTERFACE(QuillImageFilterInterface,
-                    "com.meego.Quill.QuillImageFilterInterface/1.0")
+#define QUILL_IMAGE_FILTER_INTERFACE_ID "com.meego.Quill.QuillImageFilterInterface/1.0"
+
+Q_DECLARE_INTERFACE(QuillImageFilterInterface, QUILL_IMAGE_FILTER_INTERFACE_ID)
 
 #endif //__QUILL_IMAGE_FILTER_INTERFACE_H__

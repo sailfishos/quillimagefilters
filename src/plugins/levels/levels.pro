@@ -10,4 +10,6 @@ SOURCES += levels.cpp \
     levelsplugin.cpp \
     autolevels.cpp
 
+equals(QT_MAJOR_VERSION, 5): OTHER_FILES += levels.json
+
 include(../plugin.pri)

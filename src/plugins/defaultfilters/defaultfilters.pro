@@ -22,4 +22,6 @@ SOURCES += loadfilter.cpp \
            defaultfiltersplugin.cpp \
            mimetype.cpp
 
+equals(QT_MAJOR_VERSION, 5): OTHER_FILES += defaultfilters.json
+
 include(../plugin.pri)
