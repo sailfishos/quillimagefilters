@@ -6,7 +6,7 @@ Group: System/Libraries
 License: LGPLv2
 URL: http://github.com/nemomobile/quillimagefilters
 Sources:
-    - "%{name}s-%{version}.tar.gz"
+    - "%{name}-%{version}.tar.gz"
 Description: |
     A Qt based library which contains individual image loading, processing
     and saving operations optimized for mobile devices. Operations are
@@ -19,6 +19,7 @@ PkgConfigBR:
     - quillmetadata-qt5
     - Qt5Core
     - Qt5Gui
+    - Qt5Test
 Configure: none
 Builder: qmake5
 Files:
@@ -37,7 +38,7 @@ SubPackages:
           and saving operations optimized for mobile devices. Operations are
           used by libquill but can be also used directly if the high-level
           engine framework of libquill is not desired.
-          
+
           This package includes the unit tests.
       Requires:
           - testrunner-lite
@@ -53,7 +54,7 @@ SubPackages:
           and saving operations optimized for mobile devices. Operations are
           used by libquill but can be also used directly if the high-level
           engine framework of libquill is not desired.
-          
+
           This package includes the benchmark.
 
     - Name: devel
@@ -68,6 +69,5 @@ SubPackages:
           and saving operations optimized for mobile devices. Operations are
           used by libquill but can be also used directly if the high-level
           engine framework of libquill is not desired.
-          
-          This package includes the development headers.
 
+          This package includes the development headers.
